@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="title">GO - احجز رحلتك الفاخرة</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Outfit:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="go.css">
+</head>
+<body>
+
+    <!-- GLOBAL DYNAMIC VIDEO BACKGROUND -->
+    <video autoplay muted loop playsinline class="global-video-bg" id="globalVideo">
+        <!-- Tropical Beach (Sea, Sand, Palm Trees) -->
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-beautiful-tropical-beach-with-calm-waves-22238-large.mp4" type="video/mp4">
+        <source src="https://cdn.pixabay.com/video/2016/08/22/4741-185443210_large.mp4" type="video/mp4">
+        <source src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Beach_in_the_Maldives.webm" type="video/webm">
+    </video>
+    <div class="global-overlay"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-earth-americas"></i>
+                <span class="brand-text">GO</span>
+            </a>
+            <div class="nav-links">
+                <a href="#home" class="active" data-i18n="nav_home">الرئيسية</a>
+                <a href="#destinations" data-i18n="nav_destinations">الوجهات</a>
+                <a href="#offers" data-i18n="nav_offers">العروض</a>
+                <a href="#hotels" data-i18n="nav_hotels">الفنادق</a>
+                <a href="#pricing" data-i18n="nav_pricing">الأسعار</a>
+            </div>
+            <div class="nav-controls">
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-sun"></i> <!-- Changed default to sun since bg is dark -->
+                </button>
+                <button id="lang-toggle" class="lang-btn">EN</button>
+                <div class="hamburger">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <h1 class="animate-on-scroll" data-i18n="hero_title">اكتشف أجمل رحلات مصر</h1>
+            <p class="animate-on-scroll delay-1" data-i18n="hero_subtitle">رفاهية لا حدود لها، استكشف أروع الأماكن السياحية بأفضل الأسعار المتاحة.</p>
+            
+            <!-- Live Weather Widget -->
+            <div class="weather-widget animate-on-scroll delay-1 glass-effect" id="weatherWidget">
+                <div class="weather-info">
+                    <i class="fa-solid fa-sun weather-icon" id="w-icon"></i>
+                    <div class="w-details">
+                        <span class="w-temp" id="w-temp">--°C</span>
+                        <span class="w-desc" id="w-desc" data-i18n="weather_loading">جاري جلب الطقس...</span>
+                    </div>
+                </div>
+                <div class="w-extra">
+                    <span><i class="fa-solid fa-wind"></i> <span id="w-wind">-- km/h</span></span>
+                    <span><i class="fa-solid fa-water"></i> <span data-i18n="weather_sea">حالة البحر</span></span>
+                </div>
+            </div>
+
+            <!-- Ultimate Booking Widget -->
+            <div class="booking-widget glass-effect animate-on-scroll delay-2">
+                <form id="booking-form" class="advanced-booking-form">
+                    
+                    <div class="form-row">
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-location-dot input-icon"></i>
+                            <div class="custom-dropdown" id="dest-dropdown">
+                                <div class="dropdown-selected">
+                                    <span class="selected-text" id="dest-selected-text" data-i18n="select_destination">اختر وجهتك</span>
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </div>
+                                <div class="dropdown-options">
+                                    <div class="option" data-value="sharm" data-lat="27.91" data-lon="34.33" data-i18n="dest_sharm">شرم الشيخ</div>
+                                    <div class="option" data-value="hurghada" data-lat="27.25" data-lon="33.81" data-i18n="dest_hurghada">الغردقة</div>
+                                    <div class="option" data-value="sokhna" data-lat="29.58" data-lon="32.33" data-i18n="dest_sokhna">العين السخنة</div>
+                                    <div class="option" data-value="matrouh" data-lat="31.35" data-lon="27.23" data-i18n="dest_matrouh">مرسى مطروح</div>
+                                    <div class="option" data-value="alex" data-lat="31.20" data-lon="29.91" data-i18n="dest_alex">الإسكندرية</div>
+                                    <div class="option" data-value="dahab" data-lat="28.50" data-lon="34.51" data-i18n="dest_dahab">دهب</div>
+                                    <div class="option" data-value="siwa" data-lat="29.20" data-lon="25.51" data-i18n="dest_siwa">سيوة</div>
+                                </div>
+                            </div>
+                            <input type="hidden" name="destination" id="destination-input" required>
+                        </div>
+
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-suitcase-rolling input-icon"></i>
+                            <div class="custom-dropdown" id="type-dropdown">
+                                <div class="dropdown-selected">
+                                    <span class="selected-text" id="type-selected-text" data-i18n="type_family">عائلات</span>
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </div>
+                                <div class="dropdown-options">
+                                    <div class="option" data-value="single" data-i18n="type_single" data-target="type-selected-text">فردي</div>
+                                    <div class="option" data-value="family" data-i18n="type_family" data-target="type-selected-text">عائلات</div>
+                                    <div class="option" data-value="youth" data-i18n="type_youth" data-target="type-selected-text">شباب</div>
+                                </div>
+                            </div>
+                            <input type="hidden" name="trip_type" id="trip-type-input" value="family">
+                        </div>
+                    </div>
+
+                    <div class="form-row date-row">
+                        <div class="input-wrapper">
+                            <i class="fa-regular fa-calendar-check input-icon"></i>
+                            <input type="date" name="date_start" class="custom-date" required title="تاريخ السفر">
+                        </div>
+                        <div class="input-wrapper">
+                            <i class="fa-regular fa-calendar-xmark input-icon"></i>
+                            <input type="date" name="date_end" class="custom-date" required title="تاريخ العودة">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-user-group input-icon"></i>
+                            <div class="guest-counter">
+                                <button type="button" class="counter-btn minus"><i class="fa-solid fa-minus"></i></button>
+                                <span class="guest-count">1</span>
+                                <input type="hidden" name="guests" value="1" id="guests-input">
+                                <button type="button" class="counter-btn plus"><i class="fa-solid fa-plus"></i></button>
+                            </div>
+                        </div>
+                        
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-van-shuttle input-icon"></i>
+                            <div class="custom-dropdown" id="transport-dropdown">
+                                <div class="dropdown-selected">
+                                    <span class="selected-text" id="trans-selected-text" data-i18n="trans_bus">باص سياحي</span>
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </div>
+                                <div class="dropdown-options">
+                                    <div class="option" data-value="bus" data-i18n="trans_bus" data-target="trans-selected-text">باص سياحي</div>
+                                    <div class="option" data-value="flight" data-i18n="trans_flight" data-target="trans-selected-text">طيران</div>
+                                    <div class="option" data-value="limo" data-i18n="trans_limo" data-target="trans-selected-text">ليموزين خاص</div>
+                                </div>
+                            </div>
+                            <input type="hidden" name="transport" id="transport-input" value="bus">
+                        </div>
+                    </div>
+
+                    <div class="form-row payment-row">
+                        <div class="input-wrapper">
+                            <i class="fa-solid fa-hotel input-icon"></i>
+                            <input type="text" name="hotel" class="custom-text-input" placeholder="اسم الفندق (اختياري)" data-i18n="placeholder_hotel">
+                        </div>
+                        <button type="submit" class="btn-primary" data-i18n="btn_search">احجز الآن</button>
+                    </div>
+
+                    <div class="payment-badge">
+                        <span data-i18n="secure_payment">دفع إلكتروني آمن</span>
+                        <div class="pay-icons">
+                            <i class="fa-brands fa-cc-visa"></i>
+                            <i class="fa-brands fa-cc-mastercard"></i>
+                            <i class="fa-brands fa-cc-paypal"></i>
+                            <i class="fa-brands fa-apple-pay"></i>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offers Section (Now Transparent) -->
+    <section id="offers" class="offers section-padding glass-section">
+        <div class="container">
+            <div class="section-header text-center animate-on-scroll">
+                <span class="badge" data-i18n="badge_offers">عروض حصرية</span>
+                <h2 data-i18n="offers_title">نظام العروض والخصومات</h2>
+                <p data-i18n="offers_subtitle">استفد من أقوى التخفيضات على رحلاتك القادمة</p>
+            </div>
+            
+            <div class="offers-grid">
+                <div class="offer-card glass-effect animate-on-scroll">
+                    <div class="offer-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                    <h3 data-i18n="offer_early">الحجز المبكر</h3>
+                    <p data-i18n="offer_early_desc">احجز قبل موعد الرحلة بـ 30 يوماً واحصل على خصم 15%.</p>
+                    <div class="offer-code">EARLY15</div>
+                </div>
+                <div class="offer-card glass-effect animate-on-scroll delay-1">
+                    <div class="offer-icon"><i class="fa-solid fa-sun"></i></div>
+                    <h3 data-i18n="offer_summer">عروض الصيف</h3>
+                    <p data-i18n="offer_summer_desc">استمتع بخصومات تصل إلى 20% على وجهات البحر الأحمر.</p>
+                    <div class="offer-code">SUMMER24</div>
+                </div>
+                <div class="offer-card glass-effect animate-on-scroll delay-2">
+                    <div class="offer-icon"><i class="fa-solid fa-user-graduate"></i></div>
+                    <h3 data-i18n="offer_student">خصم الطلاب</h3>
+                    <p data-i18n="offer_student_desc">بطاقة الطالب الخاصة بك تمنحك خصم 10% على جميع الرحلات.</p>
+                    <div class="offer-code">STUDENT10</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destinations Section (Now Transparent) -->
+    <section id="destinations" class="destinations section-padding glass-section">
+        <div class="container">
+            <div class="section-header text-center animate-on-scroll">
+                <span class="badge" data-i18n="badge_explore">استكشف</span>
+                <h2 data-i18n="dest_section_title">أفضل الوجهات السياحية</h2>
+            </div>
+            
+            <div class="dest-grid">
+                <!-- RELIABLE IMAGES USING PICSUM (100% WORKS LOCALLY) -->
+                <div class="dest-card animate-on-scroll glass-effect">
+                    <div class="card-img" style="background-image: url('https://picsum.photos/id/214/800/600');">
+                        <div class="card-badge" data-i18n="badge_trending">رائج</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="dest-header">
+                            <h3 data-i18n="dest_alex">الإسكندرية</h3>
+                            <span class="rating"><i class="fa-solid fa-star"></i> 4.8</span>
+                        </div>
+                        <div class="dest-meta">
+                            <span><i class="fa-regular fa-clock"></i> <span data-i18n="dur_3days">3 أيام / 2 ليالي</span></span>
+                        </div>
+                        <div class="dest-footer">
+                            <div class="price-box">
+                                <span class="price-label" data-i18n="starts_from">يبدأ من</span>
+                                <span class="price-val">1,200 <small>EGP</small></span>
+                            </div>
+                            <button class="btn-outline-sm open-booking-modal" data-target="الإسكندرية"><i class="fa-solid fa-arrow-left"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="dest-card animate-on-scroll delay-1 glass-effect">
+                    <div class="card-img" style="background-image: url('https://picsum.photos/id/1016/800/600');"></div>
+                    <div class="card-content">
+                        <div class="dest-header">
+                            <h3 data-i18n="dest_siwa">واحة سيوة</h3>
+                            <span class="rating"><i class="fa-solid fa-star"></i> 5.0</span>
+                        </div>
+                        <div class="dest-meta">
+                            <span><i class="fa-regular fa-clock"></i> <span data-i18n="dur_4days">4 أيام / 3 ليالي</span></span>
+                        </div>
+                        <div class="dest-footer">
+                            <div class="price-box">
+                                <span class="price-label" data-i18n="starts_from">يبدأ من</span>
+                                <span class="price-val">2,500 <small>EGP</small></span>
+                            </div>
+                            <button class="btn-outline-sm open-booking-modal" data-target="واحة سيوة"><i class="fa-solid fa-arrow-left"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dest-card animate-on-scroll delay-2 glass-effect">
+                    <div class="card-img" style="background-image: url('https://picsum.photos/id/173/800/600');">
+                        <div class="card-badge premium" data-i18n="badge_premium">فاخر</div>
+                    </div>
+                    <div class="card-content">
+                        <div class="dest-header">
+                            <h3 data-i18n="dest_sharm">شرم الشيخ</h3>
+                            <span class="rating"><i class="fa-solid fa-star"></i> 4.9</span>
+                        </div>
+                        <div class="dest-meta">
+                            <span><i class="fa-regular fa-clock"></i> <span data-i18n="dur_5days">5 أيام / 4 ليالي</span></span>
+                        </div>
+                        <div class="dest-footer">
+                            <div class="price-box">
+                                <span class="price-label" data-i18n="starts_from">يبدأ من</span>
+                                <span class="price-val">4,000 <small>EGP</small></span>
+                            </div>
+                            <button class="btn-outline-sm open-booking-modal" data-target="شرم الشيخ"><i class="fa-solid fa-arrow-left"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dest-card animate-on-scroll delay-3 glass-effect">
+                    <div class="card-img" style="background-image: url('https://picsum.photos/id/124/800/600');"></div>
+                    <div class="card-content">
+                        <div class="dest-header">
+                            <h3 data-i18n="dest_sokhna">العين السخنة</h3>
+                            <span class="rating"><i class="fa-solid fa-star"></i> 4.7</span>
+                        </div>
+                        <div class="dest-meta">
+                            <span><i class="fa-regular fa-clock"></i> <span data-i18n="dur_day">رحلة اليوم الواحد</span></span>
+                        </div>
+                        <div class="dest-footer">
+                            <div class="price-box">
+                                <span class="price-label" data-i18n="starts_from">يبدأ من</span>
+                                <span class="price-val">800 <small>EGP</small></span>
+                            </div>
+                            <button class="btn-outline-sm open-booking-modal" data-target="العين السخنة"><i class="fa-solid fa-arrow-left"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hotels Section -->
+    <section id="hotels" class="hotels section-padding glass-section">
+        <div class="container">
+            <div class="section-header text-center animate-on-scroll">
+                <span class="badge" data-i18n="badge_luxury">إقامة فاخرة</span>
+                <h2 data-i18n="hotels_title">فنادقنا المميزة</h2>
+                <p data-i18n="hotels_subtitle">تعاقدات حصرية مع أرقى الفنادق والمنتجعات</p>
+            </div>
+            
+            <div class="hotel-slider">
+                <div class="hotel-card glass-effect animate-on-scroll">
+                    <div class="hotel-img" style="background-image: url('https://picsum.photos/id/164/800/600');">
+                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    </div>
+                    <div class="hotel-info">
+                        <h3>Rixos Premium</h3>
+                        <p class="location"><i class="fa-solid fa-location-dot"></i> <span data-i18n="dest_sharm">شرم الشيخ</span></p>
+                        <ul class="amenities">
+                            <li><i class="fa-solid fa-wifi"></i></li>
+                            <li><i class="fa-solid fa-person-swimming"></i></li>
+                            <li><i class="fa-solid fa-utensils"></i></li>
+                            <li><i class="fa-solid fa-spa"></i></li>
+                        </ul>
+                        <button class="btn-outline w-100 open-booking-modal" data-target="Rixos Premium - شرم الشيخ" style="margin-top:1rem;" data-i18n="btn_search">احجز الآن</button>
+                    </div>
+                </div>
+                <div class="hotel-card glass-effect animate-on-scroll delay-1">
+                    <div class="hotel-img" style="background-image: url('https://picsum.photos/id/238/800/600');">
+                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    </div>
+                    <div class="hotel-info">
+                        <h3>Four Seasons Resort</h3>
+                        <p class="location"><i class="fa-solid fa-location-dot"></i> <span data-i18n="dest_alex">الإسكندرية</span></p>
+                        <ul class="amenities">
+                            <li><i class="fa-solid fa-wifi"></i></li>
+                            <li><i class="fa-solid fa-person-swimming"></i></li>
+                            <li><i class="fa-solid fa-utensils"></i></li>
+                            <li><i class="fa-solid fa-spa"></i></li>
+                        </ul>
+                        <button class="btn-outline w-100 open-booking-modal" data-target="Four Seasons - الإسكندرية" style="margin-top:1rem;" data-i18n="btn_search">احجز الآن</button>
+                    </div>
+                </div>
+                <div class="hotel-card glass-effect animate-on-scroll delay-2">
+                    <div class="hotel-img" style="background-image: url('https://picsum.photos/id/1031/800/600');">
+                        <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    </div>
+                    <div class="hotel-info">
+                        <h3>Steigenberger ALDAU</h3>
+                        <p class="location"><i class="fa-solid fa-location-dot"></i> <span data-i18n="dest_hurghada">الغردقة</span></p>
+                        <ul class="amenities">
+                            <li><i class="fa-solid fa-wifi"></i></li>
+                            <li><i class="fa-solid fa-person-swimming"></i></li>
+                            <li><i class="fa-solid fa-utensils"></i></li>
+                            <li><i class="fa-solid fa-spa"></i></li>
+                        </ul>
+                        <button class="btn-outline w-100 open-booking-modal" data-target="Steigenberger - الغردقة" style="margin-top:1rem;" data-i18n="btn_search">احجز الآن</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing section-padding glass-section">
+        <div class="container">
+            <div class="section-header text-center animate-on-scroll">
+                <span class="badge" data-i18n="badge_plans">خطط الأسعار</span>
+                <h2 data-i18n="pricing_title">باقات تناسب الجميع</h2>
+                <p data-i18n="pricing_subtitle">اختر الباقة التي تناسب تطلعاتك وميزانيتك</p>
+            </div>
+
+            <div class="pricing-grid">
+                <div class="pricing-card glass-effect animate-on-scroll">
+                    <div class="plan-header">
+                        <h3 data-i18n="plan_basic">الأساسية</h3>
+                        <div class="price"><span>EGP</span> 1,500 <small data-i18n="per_night">/ ليلة</small></div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="feat_bus">انتقالات بباص مكيف</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="feat_hotel_3">إقامة فندق 3 نجوم</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="feat_breakfast">إفطار فقط</span></li>
+                        <li class="disabled"><i class="fa-solid fa-xmark"></i> <span data-i18n="feat_guide">مرشد سياحي</span></li>
+                    </ul>
+                    <button class="btn-outline w-100 open-booking-modal" data-target="الباقة الأساسية" data-i18n="btn_choose">اختر الباقة</button>
+                </div>
+
+                <div class="pricing-card popular glass-effect animate-on-scroll delay-1">
+                    <div class="popular-badge" data-i18n="badge_popular">الأكثر طلباً</div>
+                    <div class="plan-header">
+                        <h3 data-i18n="plan_premium">المميزة</h3>
+                        <div class="price"><span>EGP</span> 3,500 <small data-i18n="per_night">/ ليلة</small></div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="feat_bus_vip">انتقالات باص VIP</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="feat_hotel_4">إقامة فندق 4 نجوم</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="feat_all_inc">إقامة شاملة (فطار، غداء، عشاء)</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="feat_trips">رحلتين مجانيتين</span></li>
+                    </ul>
+                    <button class="btn-primary w-100 open-booking-modal" data-target="الباقة المميزة" data-i18n="btn_choose">اختر الباقة</button>
+                </div>
+
+                <div class="pricing-card glass-effect animate-on-scroll delay-2">
+                    <div class="plan-header">
+                        <h3 data-i18n="plan_vip">الملكية (VIP)</h3>
+                        <div class="price"><span>EGP</span> 8,000 <small data-i18n="per_night">/ ليلة</small></div>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="feat_limo">طيران أو سيارة ليموزين</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="feat_hotel_5">فندق 5 نجوم ديولكس</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="feat_all_inc">إقامة شاملة بالكامل</span></li>
+                        <li><i class="fa-solid fa-check"></i> <span data-i18n="feat_guide">مرشد سياحي خاص وسيارة</span></li>
+                    </ul>
+                    <button class="btn-outline w-100 open-booking-modal" data-target="الباقة الملكية (VIP)" data-i18n="btn_choose">اختر الباقة</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer glass-section">
+        <div class="container footer-content glass-effect" style="padding: 3rem; border-radius: var(--radius-lg);">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <i class="fa-solid fa-earth-americas"></i>
+                    <span class="brand-text">GO</span>
+                </a>
+                <p data-i18n="footer_desc">علامتك التجارية الرائدة في عالم السياحة والسفر. نقدم لك الرفاهية بأسعار تنافسية.</p>
+            </div>
+            <div class="footer-contact">
+                <h4 data-i18n="footer_contact">تواصل معنا</h4>
+                <p><i class="fa-solid fa-phone"></i> +20 123 456 7890</p>
+                <p><i class="fa-solid fa-envelope"></i> booking@go-travel.com</p>
+                <div class="footer-social">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERACTIVE BOOKING MODAL -->
+    <div class="modal-overlay" id="bookingModal">
+        <div class="modal-content glass-effect">
+            <button class="close-modal" id="closeModal"><i class="fa-solid fa-xmark"></i></button>
+            
+            <!-- Booking Form State -->
+            <div id="modalFormState">
+                <h2 data-i18n="modal_title" style="margin-bottom: 1rem; color: var(--text-main);">تأكيد الحجز</h2>
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem;" id="modalSelectedTarget">لقد اخترت: <strong id="modalTargetName"></strong></p>
+                
+                <form id="finalBookingForm">
+                    <div class="input-group">
+                        <label data-i18n="modal_name">الاسم بالكامل</label>
+                        <div class="input-wrapper" style="height: 50px;">
+                            <i class="fa-solid fa-user input-icon"></i>
+                            <input type="text" class="custom-text-input" required>
+                        </div>
+                    </div>
+                    <div class="input-group" style="margin-top: 1rem;">
+                        <label data-i18n="modal_phone">رقم الهاتف</label>
+                        <div class="input-wrapper" style="height: 50px;">
+                            <i class="fa-solid fa-phone input-icon"></i>
+                            <input type="tel" class="custom-text-input" required>
+                        </div>
+                    </div>
+                    <div class="input-group" style="margin-top: 1rem;">
+                        <label data-i18n="modal_card">رقم البطاقة (للدفع الأونلاين)</label>
+                        <div class="input-wrapper" style="height: 50px;">
+                            <i class="fa-solid fa-credit-card input-icon"></i>
+                            <input type="text" class="custom-text-input" placeholder="**** **** **** ****" required>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn-primary w-100" style="margin-top: 2rem;" data-i18n="modal_confirm">تأكيد الدفع والحجز</button>
+                </form>
+            </div>
+
+            <!-- Success State -->
+            <div id="modalSuccessState" style="display: none; text-align: center; padding: 2rem 0;">
+                <div class="success-checkmark">
+                    <div class="check-icon">
+                        <span class="icon-line line-tip"></span>
+                        <span class="icon-line line-long"></span>
+                        <div class="icon-circle"></div>
+                        <div class="icon-fix"></div>
+                    </div>
+                </div>
+                <h2 data-i18n="modal_success_title" style="color: #4caf50; margin-bottom: 1rem;">تم الحجز بنجاح!</h2>
+                <p data-i18n="modal_success_desc" style="color: var(--text-muted);">تم تأكيد الدفع وإرسال تفاصيل الرحلة إلى هاتفك وبريدك الإلكتروني. نتمنى لك رحلة سعيدة مع GO!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="go.js"></script>
+</body>
+</html>

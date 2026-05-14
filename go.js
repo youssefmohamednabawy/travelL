@@ -1,0 +1,492 @@
+// Translation Dictionary
+const translations = {
+    ar: {
+        title: "GO - احجز رحلتك الفاخرة",
+        nav_home: "الرئيسية",
+        nav_destinations: "الوجهات",
+        nav_offers: "العروض",
+        nav_hotels: "الفنادق",
+        nav_pricing: "الأسعار",
+        nav_contact: "اتصل بنا",
+        hero_title: "اكتشف أجمل رحلات مصر",
+        hero_subtitle: "رفاهية لا حدود لها، استكشف أروع الأماكن السياحية بأفضل الأسعار المتاحة.",
+        select_destination: "اختر وجهتك",
+        dest_sharm: "شرم الشيخ",
+        dest_hurghada: "الغردقة",
+        dest_sokhna: "العين السخنة",
+        dest_matrouh: "مرسى مطروح",
+        dest_alex: "الإسكندرية",
+        dest_dahab: "دهب",
+        dest_siwa: "واحة سيوة",
+        type_single: "فردي",
+        type_family: "عائلات",
+        type_youth: "شباب",
+        trans_bus: "باص سياحي",
+        trans_flight: "طيران",
+        trans_limo: "ليموزين خاص",
+        placeholder_hotel: "اسم الفندق (اختياري)",
+        secure_payment: "دفع إلكتروني آمن",
+        btn_search: "احجز الآن",
+        weather_loading: "جاري جلب الطقس...",
+        weather_sea: "حالة البحر",
+        weather_sunny: "مشمس",
+        weather_clear: "صافي",
+        weather_cloudy: "غائم",
+        badge_offers: "عروض حصرية",
+        offers_title: "نظام العروض والخصومات",
+        offers_subtitle: "استفد من أقوى التخفيضات على رحلاتك القادمة",
+        offer_early: "الحجز المبكر",
+        offer_early_desc: "احجز قبل موعد الرحلة بـ 30 يوماً واحصل على خصم 15%.",
+        offer_summer: "عروض الصيف",
+        offer_summer_desc: "استمتع بخصومات تصل إلى 20% على وجهات البحر الأحمر.",
+        offer_student: "خصم الطلاب",
+        offer_student_desc: "بطاقة الطالب الخاصة بك تمنحك خصم 10% على جميع الرحلات.",
+        badge_explore: "استكشف",
+        dest_section_title: "أفضل الوجهات السياحية",
+        badge_trending: "رائج",
+        badge_premium: "فاخر",
+        dur_3days: "3 أيام / 2 ليالي",
+        dur_4days: "4 أيام / 3 ليالي",
+        dur_5days: "5 أيام / 4 ليالي",
+        dur_day: "رحلة اليوم الواحد",
+        starts_from: "يبدأ من",
+        badge_luxury: "إقامة فاخرة",
+        hotels_title: "فنادقنا المميزة",
+        hotels_subtitle: "تعاقدات حصرية مع أرقى الفنادق والمنتجعات",
+        badge_plans: "خطط الأسعار",
+        pricing_title: "باقات تناسب الجميع",
+        pricing_subtitle: "اختر الباقة التي تناسب تطلعاتك وميزانيتك",
+        plan_basic: "الأساسية",
+        plan_premium: "المميزة",
+        plan_vip: "الملكية (VIP)",
+        per_night: "/ ليلة",
+        feat_bus: "انتقالات بباص مكيف",
+        feat_hotel_3: "إقامة فندق 3 نجوم",
+        feat_breakfast: "إفطار فقط",
+        feat_guide: "مرشد سياحي",
+        feat_bus_vip: "انتقالات باص VIP",
+        feat_hotel_4: "إقامة فندق 4 نجوم",
+        feat_all_inc: "إقامة شاملة",
+        feat_trips: "رحلتين مجانيتين",
+        feat_limo: "طيران أو سيارة ليموزين",
+        feat_hotel_5: "فندق 5 نجوم ديولكس",
+        badge_popular: "الأكثر طلباً",
+        btn_choose: "اختر الباقة",
+        footer_desc: "علامتك التجارية الرائدة في عالم السياحة والسفر. نقدم لك الرفاهية بأسعار تنافسية.",
+        footer_contact: "تواصل معنا",
+        modal_title: "تأكيد الحجز",
+        modal_name: "الاسم بالكامل",
+        modal_phone: "رقم الهاتف",
+        modal_card: "رقم البطاقة (للدفع الأونلاين)",
+        modal_confirm: "تأكيد الدفع والحجز",
+        modal_success_title: "تم الحجز بنجاح!",
+        modal_success_desc: "تم تأكيد الدفع وإرسال تفاصيل الرحلة إلى هاتفك وبريدك الإلكتروني. نتمنى لك رحلة سعيدة مع GO!"
+    },
+    en: {
+        title: "GO - Book Your Luxury Trip",
+        nav_home: "Home",
+        nav_destinations: "Destinations",
+        nav_offers: "Offers",
+        nav_hotels: "Hotels",
+        nav_pricing: "Pricing",
+        nav_contact: "Contact Us",
+        hero_title: "Discover Egypt's Best Trips",
+        hero_subtitle: "Limitless luxury, explore the most amazing tourist spots at the best available prices.",
+        select_destination: "Select Destination",
+        dest_sharm: "Sharm El Sheikh",
+        dest_hurghada: "Hurghada",
+        dest_sokhna: "Ain Sokhna",
+        dest_matrouh: "Marsa Matrouh",
+        dest_alex: "Alexandria",
+        dest_dahab: "Dahab",
+        dest_siwa: "Siwa Oasis",
+        type_single: "Single",
+        type_family: "Family",
+        type_youth: "Youth",
+        trans_bus: "Tourist Bus",
+        trans_flight: "Flight",
+        trans_limo: "Private Limo",
+        placeholder_hotel: "Hotel Name (Optional)",
+        secure_payment: "Secure Online Payment",
+        btn_search: "Book Now",
+        weather_loading: "Fetching Weather...",
+        weather_sea: "Sea State",
+        weather_sunny: "Sunny",
+        weather_clear: "Clear",
+        weather_cloudy: "Cloudy",
+        badge_offers: "Exclusive Offers",
+        offers_title: "Offers & Discounts System",
+        offers_subtitle: "Take advantage of the strongest discounts on your next trips",
+        offer_early: "Early Booking",
+        offer_early_desc: "Book 30 days in advance and get a 15% discount.",
+        offer_summer: "Summer Offers",
+        offer_summer_desc: "Enjoy discounts up to 20% on Red Sea destinations.",
+        offer_student: "Student Discount",
+        offer_student_desc: "Your student card gives you a 10% discount on all trips.",
+        badge_explore: "Explore",
+        dest_section_title: "Top Tourist Destinations",
+        badge_trending: "Trending",
+        badge_premium: "Premium",
+        dur_3days: "3 Days / 2 Nights",
+        dur_4days: "4 Days / 3 Nights",
+        dur_5days: "5 Days / 4 Nights",
+        dur_day: "Day Trip",
+        starts_from: "Starts from",
+        badge_luxury: "Luxury Stay",
+        hotels_title: "Our Featured Hotels",
+        hotels_subtitle: "Exclusive contracts with the finest hotels and resorts",
+        badge_plans: "Pricing Plans",
+        pricing_title: "Packages for Everyone",
+        pricing_subtitle: "Choose the package that suits your aspirations and budget",
+        plan_basic: "Basic",
+        plan_premium: "Premium",
+        plan_vip: "Royal (VIP)",
+        per_night: "/ night",
+        feat_bus: "AC Bus Transfers",
+        feat_hotel_3: "3-Star Hotel Stay",
+        feat_breakfast: "Breakfast Only",
+        feat_guide: "Tour Guide",
+        feat_bus_vip: "VIP Bus Transfers",
+        feat_hotel_4: "4-Star Hotel Stay",
+        feat_all_inc: "All Inclusive",
+        feat_trips: "Two Free Trips",
+        feat_limo: "Flight or Limousine",
+        feat_hotel_5: "5-Star Deluxe Hotel",
+        badge_popular: "Most Popular",
+        btn_choose: "Choose Package",
+        footer_desc: "Your leading brand in tourism and travel. We offer luxury at competitive prices.",
+        footer_contact: "Contact Us",
+        modal_title: "Confirm Booking",
+        modal_name: "Full Name",
+        modal_phone: "Phone Number",
+        modal_card: "Card Number (Online Payment)",
+        modal_confirm: "Confirm Payment & Book",
+        modal_success_title: "Booking Successful!",
+        modal_success_desc: "Payment confirmed and trip details sent to your phone and email. Have a great trip with GO!"
+    }
+};
+
+let currentLang = 'ar';
+
+// DOM Elements
+const themeToggle = document.getElementById('theme-toggle');
+const langToggle = document.getElementById('lang-toggle');
+const htmlElement = document.documentElement;
+const navbar = document.querySelector('.navbar');
+
+// Run Scroll Animations on Load (Removed Preloader)
+window.addEventListener('load', () => {
+    handleScrollAnimations();
+});
+
+// Scroll Animations (Intersection Observer)
+const animatedElements = document.querySelectorAll('.animate-on-scroll');
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+
+animatedElements.forEach(el => observer.observe(el));
+
+function handleScrollAnimations() {
+    animatedElements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if(rect.top < window.innerHeight - 50) {
+            el.classList.add('show');
+        }
+    });
+}
+
+// Navbar Scroll Effect
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
+
+// Theme Toggle (Dark/Light)
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+    htmlElement.setAttribute('data-theme', savedTheme);
+    updateThemeIcon(savedTheme);
+}
+
+themeToggle.addEventListener('click', () => {
+    const currentTheme = htmlElement.getAttribute('data-theme');
+    const targetTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    htmlElement.setAttribute('data-theme', targetTheme);
+    localStorage.setItem('theme', targetTheme);
+    updateThemeIcon(targetTheme);
+});
+
+function updateThemeIcon(theme) {
+    const icon = themeToggle.querySelector('i');
+    if (theme === 'dark') {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+    } else {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+    }
+}
+
+// Language Toggle (Arabic/English)
+langToggle.addEventListener('click', () => {
+    currentLang = currentLang === 'ar' ? 'en' : 'ar';
+    htmlElement.setAttribute('lang', currentLang);
+    htmlElement.setAttribute('dir', currentLang === 'ar' ? 'rtl' : 'ltr');
+    langToggle.textContent = currentLang === 'ar' ? 'EN' : 'AR';
+    translatePage();
+});
+
+function translatePage() {
+    const elements = document.querySelectorAll('[data-i18n]');
+    elements.forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[currentLang][key]) {
+            if (element.tagName === 'INPUT' && element.type === 'placeholder') {
+                 element.placeholder = translations[currentLang][key];
+            } else if (element.tagName === 'TITLE') {
+                document.title = translations[currentLang][key];
+            } else {
+                const icon = element.querySelector('i');
+                if (icon) {
+                    element.innerHTML = '';
+                    element.appendChild(icon);
+                    element.append(' ' + translations[currentLang][key]);
+                } else {
+                    element.textContent = translations[currentLang][key];
+                }
+            }
+        }
+    });
+
+    // Update modal prefix text
+    const prefix = currentLang === 'ar' ? 'لقد اخترت: ' : 'You selected: ';
+    const modalTargetName = document.getElementById('modalTargetName');
+    if(modalTargetName && document.getElementById('modalSelectedTarget')) {
+        document.getElementById('modalSelectedTarget').innerHTML = `${prefix}<strong id="modalTargetName">${modalTargetName.textContent}</strong>`;
+    }
+}
+
+// Custom Dropdowns Logic
+const dropdowns = document.querySelectorAll('.custom-dropdown');
+dropdowns.forEach(dropdown => {
+    const selected = dropdown.querySelector('.dropdown-selected');
+    const options = dropdown.querySelectorAll('.option');
+    
+    selected.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dropdowns.forEach(d => { if(d !== dropdown) d.classList.remove('open'); });
+        dropdown.classList.toggle('open');
+    });
+
+    options.forEach(option => {
+        option.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const value = option.getAttribute('data-value');
+            const textKey = option.getAttribute('data-i18n');
+            const targetId = option.getAttribute('data-target');
+            
+            const selectedTextObj = targetId ? document.getElementById(targetId) : dropdown.querySelector('.selected-text');
+            selectedTextObj.textContent = translations[currentLang][textKey];
+            
+            const hiddenInput = dropdown.nextElementSibling;
+            if(hiddenInput && hiddenInput.tagName === 'INPUT') {
+                hiddenInput.value = value;
+            }
+
+            if(dropdown.id === 'dest-dropdown') {
+                const lat = option.getAttribute('data-lat');
+                const lon = option.getAttribute('data-lon');
+                if(lat && lon) fetchWeather(lat, lon);
+            }
+
+            dropdown.classList.remove('open');
+        });
+    });
+});
+
+document.addEventListener('click', () => {
+    dropdowns.forEach(d => d.classList.remove('open'));
+});
+
+// Guest Counter Logic
+const minusBtn = document.querySelector('.minus');
+const plusBtn = document.querySelector('.plus');
+const guestCountSpan = document.querySelector('.guest-count');
+const guestsInput = document.getElementById('guests-input');
+
+if(minusBtn && plusBtn) {
+    minusBtn.addEventListener('click', () => {
+        let count = parseInt(guestsInput.value);
+        if(count > 1) {
+            count--;
+            guestsInput.value = count;
+            guestCountSpan.textContent = count;
+        }
+    });
+
+    plusBtn.addEventListener('click', () => {
+        let count = parseInt(guestsInput.value);
+        if(count < 20) {
+            count++;
+            guestsInput.value = count;
+            guestCountSpan.textContent = count;
+        }
+    });
+}
+
+// Weather Fetching Logic using Open-Meteo API
+async function fetchWeather(lat, lon) {
+    const wTemp = document.getElementById('w-temp');
+    const wDesc = document.getElementById('w-desc');
+    const wWind = document.getElementById('w-wind');
+    const wIcon = document.getElementById('w-icon');
+
+    wDesc.textContent = translations[currentLang]['weather_loading'];
+
+    try {
+        const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`);
+        const data = await response.json();
+        
+        const temp = Math.round(data.current_weather.temperature);
+        const wind = data.current_weather.windspeed;
+        const code = data.current_weather.weathercode;
+
+        wTemp.textContent = `${temp}°C`;
+        wWind.textContent = `${wind} km/h`;
+
+        if(code <= 3) {
+            wDesc.textContent = translations[currentLang]['weather_sunny'] || translations[currentLang]['weather_clear'];
+            wIcon.className = 'fa-solid fa-sun weather-icon';
+        } else {
+            wDesc.textContent = translations[currentLang]['weather_cloudy'];
+            wIcon.className = 'fa-solid fa-cloud weather-icon';
+            wIcon.style.color = '#cbd5e1';
+        }
+    } catch (error) {
+        wDesc.textContent = "Error";
+    }
+}
+
+// ==========================================
+// INTERACTIVE BOOKING MODAL LOGIC
+// ==========================================
+const bookingModal = document.getElementById('bookingModal');
+const closeModalBtn = document.getElementById('closeModal');
+const modalTargetName = document.getElementById('modalTargetName');
+const modalFormState = document.getElementById('modalFormState');
+const modalSuccessState = document.getElementById('modalSuccessState');
+const finalBookingForm = document.getElementById('finalBookingForm');
+
+// Open Modal from Cards & Main Form
+function openBookingModal(targetName) {
+    modalTargetName.textContent = targetName;
+    modalFormState.style.display = 'block';
+    modalSuccessState.style.display = 'none';
+    bookingModal.classList.add('active');
+    document.body.style.overflow = 'hidden'; // prevent bg scroll
+}
+
+// Close Modal
+function closeBookingModal() {
+    bookingModal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+    finalBookingForm.reset();
+}
+
+if(closeModalBtn) closeModalBtn.addEventListener('click', closeBookingModal);
+
+// Close on outside click
+if(bookingModal) {
+    bookingModal.addEventListener('click', (e) => {
+        if(e.target === bookingModal) closeBookingModal();
+    });
+}
+
+// Attach to all buttons
+document.querySelectorAll('.open-booking-modal').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = btn.getAttribute('data-target');
+        openBookingModal(target);
+    });
+});
+
+// Main Hero Form Submit
+const mainBookingForm = document.getElementById('booking-form');
+if(mainBookingForm) {
+    mainBookingForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const dest = document.getElementById('destination-input').value;
+        const dateStart = mainBookingForm.querySelector('input[name="date_start"]').value;
+        const dateEnd = mainBookingForm.querySelector('input[name="date_end"]').value;
+        
+        if(!dest || !dateStart || !dateEnd) {
+            alert(currentLang === 'ar' ? "الرجاء تعبئة الوجهة وتواريخ السفر" : "Please fill in destination and dates");
+            return;
+        }
+
+        // Get readable destination name
+        let readableDest = dest;
+        const destOption = document.querySelector(`#dest-dropdown .option[data-value="${dest}"]`);
+        if(destOption) readableDest = translations[currentLang][destOption.getAttribute('data-i18n')];
+
+        openBookingModal(`${readableDest} (${dateStart} -> ${dateEnd})`);
+    });
+}
+
+// Final Booking Confirm inside Modal
+if(finalBookingForm) {
+    finalBookingForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const submitBtn = finalBookingForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
+        
+        // Simulate API Call Payment Processing
+        setTimeout(() => {
+            submitBtn.textContent = originalText;
+            modalFormState.style.display = 'none';
+            modalSuccessState.style.display = 'block';
+        }, 1500);
+    });
+}
+
+// Mobile Hamburger Menu
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+if(hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        const icon = hamburger.querySelector('i');
+        if(navLinks.classList.contains('active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-xmark');
+        } else {
+            icon.classList.remove('fa-xmark');
+            icon.classList.add('fa-bars');
+        }
+    });
+
+    // Close menu when clicking a link
+    navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            hamburger.querySelector('i').className = 'fa-solid fa-bars';
+        });
+    });
+}
+
+// Initialize
+translatePage();
+fetchWeather(27.91, 34.33);
